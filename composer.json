@@ -15,5 +15,12 @@
         "psr-4": {
             "JePaFe\\Contact\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JePaFe\\Contact\\ContactServiceProvider"
+            ]
+        }
     }
 }
