@@ -9,6 +9,9 @@
 </head>
 <body>
 <h1>Contact</h1>
+@if (session('status'))
+    <p>{{ session('status') }}</p>
+@endif
 <form action="{{ route('contact') }}" method="post">
     @csrf
     <input type="hidden" id="recaptcha-response" name="recaptcha-response">
