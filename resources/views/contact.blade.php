@@ -11,6 +11,7 @@
 <h1>Contact</h1>
 <form action="{{ route('contact') }}" method="post">
     @csrf
+    <input type="hidden" id="recaptcha-response" name="recaptcha-response">
     <div>
         <label for="name">Name: </label>
         <input type="text" name="name" id="name">
@@ -33,5 +34,13 @@
         <input type="submit">
     </div>
 </form>
+<script src="https://www.google.com/recaptcha/api.js?render={!! config('contact.api_site_key') !!}"></script>
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('{!! config('contact.api_site_key') !!}', {action: 'contact'}).then(function(token) {
+            document.getElementById('recaptcha-response').value = token;
+        });
+    });
+</script>
 </body>
 </html>
