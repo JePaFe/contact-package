@@ -34,7 +34,7 @@ class ContactController extends Controller
 
         if ($result->success && $result->action == 'contact' && $result->score > 0.5) {
             Mail::to(config('contact.send_email_to'))
-                ->send(new ContactMailable($request->get('name'), $request->get('message')));
+                ->send(new ContactMailable($request->get('name'), $request->get('email'), $request->get('message')));
 
             Contact::create($request->all());
         }
