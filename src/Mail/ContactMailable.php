@@ -35,6 +35,7 @@ class ContactMailable extends Mailable
     public function build()
     {
         return $this->markdown('contact::emails.contact')
+            ->subject(config('contact.subject'))
             ->from($this->email, $this->name)
             ->with([
                 'name' => $this->name,
