@@ -17,21 +17,21 @@
     <input type="hidden" id="recaptcha-response" name="recaptcha-response">
     <div>
         <label for="name">Name: </label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" value="{{ old('name') }}">
         @error('name')
             <span>{{ $message }}</span>
         @enderror
     </div>
     <div>
         <label for="email">Email: </label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" value="{{ old('email') }}">
         @error('email')
             <span>{{ $message }}</span>
         @enderror
     </div>
     <div>
         <label for="message">Message: </label>
-        <textarea name="message" id="message"></textarea>
+        <textarea name="message" id="message">{{ old('message') }}</textarea>
     </div>
     <div>
         <input type="submit">
